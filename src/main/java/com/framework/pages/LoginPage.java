@@ -22,18 +22,29 @@ public class LoginPage extends BasePage {
     @FindBy(className = "alert-info")
     WebElement alertMessage;
 
-    public LoginPage withUsername(String username) {
+    @FindBy(id = "remember_me")
+    WebElement rememberMeInput;
+
+    @FindBy(partialLinkText = "Click to Register")
+    WebElement registerLink;
+
+    public LoginPage setUsername(String username) {
         userNameInput.sendKeys(username);
         return this;
     }
 
-    public LoginPage withPassword(String password) {
+    public LoginPage setPassword(String password) {
         passwordInput.sendKeys(password);
         return this;
     }
 
     public LoginPage submitWithoutSuccess() {
         submitButton.click();
+        return this;
+    }
+
+    public LoginPage clickOnRememberMe() {
+        rememberMeInput.click();
         return this;
     }
 
@@ -44,5 +55,10 @@ public class LoginPage extends BasePage {
 
     public boolean isAlertMessageDisplayed() {
         return webDriverWait.until(webDriver -> alertMessage.isDisplayed());
+    }
+
+    public RegisterPage clickOnRegisterLink(){
+        registerLink.click();
+        return pageFactory.createPage(RegisterPage.class);
     }
 }
