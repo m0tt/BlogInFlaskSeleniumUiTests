@@ -9,23 +9,26 @@ public class RegisterPage extends LoginPage {
         super(driver);
     }
 
-    @FindBy(id="username")
+    @FindBy(id = "username")
     WebElement userNameInput;
 
-    @FindBy(id="email")
+    @FindBy(id = "email")
     WebElement emailInput;
 
-    @FindBy(id="password")
+    @FindBy(id = "password")
     WebElement passwordInput;
 
-    @FindBy(id="password2")
+    @FindBy(id = "password2")
     WebElement repeatPasswordInput;
 
     @FindBy(id = "submit")
     WebElement submitButton;
 
-    @FindBy(className = "help-block")
+    @FindBy(className = "alert-info")
     WebElement alertMessage;
+
+    @FindBy(className = "help-block")
+    WebElement helpMessage;
 
     public RegisterPage setUsername(String username) {
         userNameInput.sendKeys(username);
@@ -47,14 +50,24 @@ public class RegisterPage extends LoginPage {
         return this;
     }
 
-    public RegisterPage submitWithoutSuccess() {
+    public RegisterPage clickRegisterButtonWithoutSuccess() {
         submitButton.click();
         return this;
+    }
+
+    public LoginPage clickRegisterButtonWithSuccess() {
+        submitButton.click();
+        return pageFactory.createPage(LoginPage.class);
     }
 
     public String getAlertText() {
         String alertText = alertMessage.getText();
         return alertText;
+    }
+
+    public String getHelpText() {
+        String helpText = helpMessage.getText();
+        return helpText;
     }
 
 }

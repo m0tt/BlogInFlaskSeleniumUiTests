@@ -22,9 +22,6 @@ public class LoginPage extends BasePage {
     @FindBy(className = "alert-info")
     WebElement alertMessage;
 
-    @FindBy(id = "remember_me")
-    WebElement rememberMeInput;
-
     @FindBy(partialLinkText = "Click to Register")
     WebElement registerLink;
 
@@ -38,13 +35,8 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public LoginPage submitWithoutSuccess() {
+    public LoginPage clickSignInButtonWithoutSuccess() {
         submitButton.click();
-        return this;
-    }
-
-    public LoginPage clickOnRememberMe() {
-        rememberMeInput.click();
         return this;
     }
 
@@ -57,7 +49,7 @@ public class LoginPage extends BasePage {
         return webDriverWait.until(webDriver -> alertMessage.isDisplayed());
     }
 
-    public RegisterPage clickOnRegisterLink(){
+    public RegisterPage clickRegisterLink(){
         registerLink.click();
         return pageFactory.createPage(RegisterPage.class);
     }
