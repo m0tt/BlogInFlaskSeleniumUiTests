@@ -40,9 +40,15 @@ public class LoginPage extends BasePage {
         return this;
     }
 
+    public HomePage clickSignInButtonWithSuccess(String username, String password) {
+        setUsername(username);
+        setPassword(password);
+        submitButton.click();
+        return pageFactory.createPage(HomePage.class);
+    }
+
     public String getAlertText() {
-        String alertText = alertMessage.getText();
-        return alertText;
+        return alertMessage.getText();
     }
 
     public boolean isAlertMessageDisplayed() {

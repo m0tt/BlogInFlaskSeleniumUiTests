@@ -21,7 +21,7 @@ public class NegativeTests extends BaseTest {
                 loginPage.open()
                         .setUsername(RandomString.make())
                         .setPassword(RandomString.make())
-                        .submitWithoutSuccess()
+                        .clickSignInButtonWithoutSuccess()
                         .getAlertText())
                 .isEqualTo("Invalid username or password");
     }
@@ -32,36 +32,36 @@ public class NegativeTests extends BaseTest {
                 loginPage.open()
                         .setUsername(RandomString.make())
                         .setPassword(RandomString.make())
-                        .submitWithoutSuccess()
+                        .clickSignInButtonWithoutSuccess()
                         .getAlertText())
                 .isEqualTo("Invalid username or password");
     }
 
     @Test
-    public void invalidEmailAddress() {
+    public void warningMessageShouldBeVisibleWhenInvalidEmailAddressProvided() {
         assertThat(
                 loginPage.open()
-                        .clickOnRegisterLink()
+                        .clickRegisterLink()
                         .setUsername(RandomString.make())
                         .setEmail(RandomString.make())
                         .setPassword(RandomString.make())
                         .setRepeatPassword(RandomString.make())
-                        .submitWithoutSuccess()
-                        .getAlertText())
+                        .clickRegisterButtonWithoutSuccess()
+                        .getHelpText())
                 .isEqualTo("Invalid email address.");
     }
 
     @Test
-    public void invalidRepeatPassword() {
+    public void warningMessageShouldBeVisibleWhenInvalidRepeatPasswordProvided() {
         assertThat(
                 loginPage.open()
-                        .clickOnRegisterLink()
+                        .clickRegisterLink()
                         .setUsername(RandomString.make())
-                        .setEmail(RandomString.make()+"@test.pl")
+                        .setEmail(String.join("@", RandomString.make(), "m0tt.pl"))
                         .setPassword(RandomString.make())
                         .setRepeatPassword(RandomString.make())
-                        .submitWithoutSuccess()
-                        .getAlertText())
+                        .clickRegisterButtonWithoutSuccess()
+                        .getHelpText())
                 .isEqualTo("Field must be equal to password.");
     }
 }
