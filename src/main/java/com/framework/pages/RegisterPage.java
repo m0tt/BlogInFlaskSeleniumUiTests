@@ -61,13 +61,11 @@ public class RegisterPage extends LoginPage {
     }
 
     public String getAlertText() {
-        String alertText = alertMessage.getText();
-        return alertText;
+        return alertMessage.getText();
     }
 
     public String getHelpText() {
-        String helpText = helpMessage.getText();
-        return helpText;
+        return helpMessage.getText();
     }
 
 }

@@ -10,10 +10,10 @@ public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver) { super(driver); }
 
-    @FindBy(id="username")
+    @FindBy(id = "username")
     WebElement userNameInput;
 
-    @FindBy(id="password")
+    @FindBy(id = "password")
     WebElement passwordInput;
 
     @FindBy(id = "submit")
@@ -24,6 +24,9 @@ public class LoginPage extends BasePage {
 
     @FindBy(partialLinkText = "Click to Register")
     WebElement registerLink;
+
+    @FindBy(partialLinkText = "Microblog")
+    WebElement microblogLink;
 
     public LoginPage setUsername(String username) {
         userNameInput.sendKeys(username);
@@ -58,5 +61,10 @@ public class LoginPage extends BasePage {
     public RegisterPage clickRegisterLink(){
         registerLink.click();
         return pageFactory.createPage(RegisterPage.class);
+    }
+
+    public HomePage clickMicroblogLink(){
+        microblogLink.click();
+        return pageFactory.createPage(HomePage.class);
     }
 }
