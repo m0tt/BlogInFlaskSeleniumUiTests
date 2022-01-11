@@ -7,6 +7,9 @@ public interface Configuration extends Config {
 
     @DefaultValue("CHROME")
     String browserName();
+
     String applicationAddress();
+
+    String gridHubURL();
 
 }
