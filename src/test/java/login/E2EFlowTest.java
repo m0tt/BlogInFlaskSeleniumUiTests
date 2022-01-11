@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class E2E_Flow_Test extends BaseTest {
+public class E2EFlowTest extends BaseTest {
 
     String userName = RandomString.make(4);
     String email = String.join("@", RandomString.make(), "m0tt.pl");
