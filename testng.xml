@@ -1,0 +1,12 @@
+<suite name="UiTests">
+    <test name="negative-tests">
+        <classes>
+            <class name="login.NegativeTests" />
+        </classes>
+    </test>
+    <test name="e2e-test">
+        <classes>
+            <class name="login.E2EFlowTest" />
+        </classes>
+    </test>
+</suite>
