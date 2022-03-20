@@ -13,16 +13,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class LocalDriverFactory {
     private static Configuration configuration = ConfigFactory.create(Configuration.class);
 
-    public WebDriver getDriver() {
-        DriverManagerType driverType;
+    protected WebDriver getLocalDriver() {
+        DriverManagerType browserType;
         WebDriver driver;
-        driverType = DriverManagerType.valueOf(configuration.browserName());
+        browserType = DriverManagerType.valueOf(configuration.browserType());
 
-        switch (driverType) {
-            case CHROME:
-                WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
-                break;
+        switch (browserType) {
             case FIREFOX:
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();

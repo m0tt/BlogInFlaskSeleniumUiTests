@@ -16,16 +16,13 @@ import java.net.URL;
 public class RemoteDriverFactory {
     private static Configuration configuration = ConfigFactory.create(Configuration.class);
 
-    public WebDriver getDriver() throws MalformedURLException {
-        DriverManagerType driverType;
+    protected WebDriver getRemoteDriver() throws MalformedURLException {
+        DriverManagerType browserType;
         WebDriver driver;
-        driverType = DriverManagerType.valueOf(configuration.browserName());
+        browserType = DriverManagerType.valueOf(configuration.browserType());
         URL gridHubURL = new URL(configuration.gridHubURL());
 
-        switch (driverType) {
-            case CHROME:
-                driver = new RemoteWebDriver(gridHubURL, new ChromeOptions());
-                break;
+        switch (browserType) {
             case FIREFOX:
                 driver = new RemoteWebDriver(gridHubURL, new FirefoxOptions());
                 break;
