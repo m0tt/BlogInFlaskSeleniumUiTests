@@ -1,5 +1,6 @@
 package base;
 
+import com.framework.base.factory.DriverFactory;
 import com.framework.base.factory.RemoteDriverFactory;
 import com.framework.pages.LoginPage;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +15,7 @@ public class BaseTest {
 
     @BeforeClass
     public void setUp() throws MalformedURLException {
-        this.driver = new RemoteDriverFactory().getDriver();
+        this.driver = new DriverFactory().getDriverType();
         loginPage = new LoginPage(driver);
     }
 
