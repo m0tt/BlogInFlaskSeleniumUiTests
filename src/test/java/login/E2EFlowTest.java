@@ -3,7 +3,7 @@ package login;
 import base.BaseTest;
 import com.framework.pages.CreatePostPage;
 import com.framework.pages.HomePage;
-import org.assertj.core.internal.bytebuddy.utility.RandomString;
+import net.bytebuddy.utility.RandomString;
 import org.testng.annotations.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

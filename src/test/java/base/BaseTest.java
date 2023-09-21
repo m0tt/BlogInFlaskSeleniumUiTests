@@ -1,7 +1,6 @@
 package base;
 
 import com.framework.base.factory.DriverFactory;
-import com.framework.base.factory.RemoteDriverFactory;
 import com.framework.pages.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
@@ -21,7 +20,7 @@ public class BaseTest {
 
     @AfterClass
     public void tearDown() {
-        this.driver.close();
+        //this.driver.close();
         this.driver.quit();
     }
 

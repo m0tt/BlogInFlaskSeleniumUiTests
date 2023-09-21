@@ -7,6 +7,8 @@ import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public abstract class BasePage {
 
     private static Configuration configuration = ConfigFactory.create(Configuration.class);
@@ -16,7 +18,7 @@ public abstract class BasePage {
 
     public BasePage(WebDriver driver){
         this.driver = driver;
-        this.webDriverWait = new WebDriverWait(driver, 15);
+        this.webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(15));
         pageFactory = new PageFactory(driver);
     }
 
